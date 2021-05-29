@@ -10,6 +10,7 @@ export class CityMstService {
   ) {}
 
   async findAll(): Promise<CityMst[]> {
-    return this.cityMstRepository.find();
+    return this.cityMstRepository.createQueryBuilder("city_mst")
+    .getMany();
   }
 }
