@@ -11,7 +11,7 @@ export const databaseProviders = [
       password: 'a34c0f4864a6baf20ae8abd734b3b2ac99fef163989f7172dea9938fbc12ccb0',
       database: 'dcqrqnh1ee8na3',
       entities: [
-        '/../../data/entity/*.entity{.ts,.js}',
+        __dirname + '/../../data/entity/*.entity{.ts,.js}',
       ],
       // entities: [
       //     __dirname + '../../data/entity/*.entity{.ts,.js}',
