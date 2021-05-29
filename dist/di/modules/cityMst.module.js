@@ -6,21 +6,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityMasterModule = void 0;
+exports.CityMstModule = void 0;
 const common_1 = require("@nestjs/common");
 const database_module_1 = require("./database.module");
-const cityMaster_providers_1 = require("../providers/cityMaster.providers");
-const cityMaster_service_1 = require("../../service/cityMaster.service");
-let CityMasterModule = class CityMasterModule {
+const cityMst_providers_1 = require("../providers/cityMst.providers");
+const cityMst_service_1 = require("../../service/cityMst.service");
+let CityMstModule = class CityMstModule {
 };
-CityMasterModule = __decorate([
+CityMstModule = __decorate([
     common_1.Module({
         imports: [database_module_1.DatabaseModule],
         providers: [
-            ...cityMaster_providers_1.cityMasterProviders,
-            cityMaster_service_1.CityMasterService,
+            ...cityMst_providers_1.cityMstProviders,
+            cityMst_service_1.CityMstService,
         ],
     })
-], CityMasterModule);
-exports.CityMasterModule = CityMasterModule;
-//# sourceMappingURL=cityMster.module.js.map
+], CityMstModule);
+exports.CityMstModule = CityMstModule;
+//# sourceMappingURL=cityMst.module.js.map

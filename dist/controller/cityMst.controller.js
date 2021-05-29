@@ -9,15 +9,15 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityMasterController = void 0;
+exports.CityMstController = void 0;
 const common_1 = require("@nestjs/common");
-const cityMaster_service_1 = require("../service/cityMaster.service");
-let CityMasterController = class CityMasterController {
-    constructor(cityMasterService) {
-        this.cityMasterService = cityMasterService;
+const cityMst_service_1 = require("../service/cityMst.service");
+let CityMstController = class CityMstController {
+    constructor(cityMstService) {
+        this.cityMstService = cityMstService;
     }
     getCityMaster() {
-        return this.cityMasterService.findAll();
+        return this.cityMstService.findAll();
     }
 };
 __decorate([
@@ -25,10 +25,10 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Object)
-], CityMasterController.prototype, "getCityMaster", null);
-CityMasterController = __decorate([
+], CityMstController.prototype, "getCityMaster", null);
+CityMstController = __decorate([
     common_1.Controller('city'),
-    __metadata("design:paramtypes", [cityMaster_service_1.CityMasterService])
-], CityMasterController);
-exports.CityMasterController = CityMasterController;
-//# sourceMappingURL=cityMaster.controller.js.map
+    __metadata("design:paramtypes", [cityMst_service_1.CityMstService])
+], CityMstController);
+exports.CityMstController = CityMstController;
+//# sourceMappingURL=cityMst.controller.js.map

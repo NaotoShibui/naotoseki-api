@@ -8,27 +8,25 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppController = void 0;
+exports.CityMstService = void 0;
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("./app.service");
-let AppController = class AppController {
-    constructor(appService) {
-        this.appService = appService;
+const typeorm_1 = require("typeorm");
+let CityMstService = class CityMstService {
+    constructor(cityMstRepository) {
+        this.cityMstRepository = cityMstRepository;
     }
-    getHello() {
-        return this.appService.getHello();
+    async findAll() {
+        return this.cityMstRepository.find();
     }
 };
-__decorate([
-    common_1.Get(),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getHello", null);
-AppController = __decorate([
-    common_1.Controller(),
-    __metadata("design:paramtypes", [app_service_1.AppService])
-], AppController);
-exports.AppController = AppController;
-//# sourceMappingURL=app.controller.js.map
+CityMstService = __decorate([
+    common_1.Injectable(),
+    __param(0, common_1.Inject('CITY_MST_REPOSITORY')),
+    __metadata("design:paramtypes", [typeorm_1.Repository])
+], CityMstService);
+exports.CityMstService = CityMstService;
+//# sourceMappingURL=cityMst.service.js.map

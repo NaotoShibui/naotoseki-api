@@ -15,6 +15,14 @@ exports.databaseProviders = [
             entities: [
                 __dirname + '../../data/entity/*.entity{.ts,.js}',
             ],
+            extra: {
+                ssl: true
+            },
+            extra: {
+                ssl: {
+                    rejectUnauthorized: false
+                }
+            },
             synchronize: true,
         }),
     },

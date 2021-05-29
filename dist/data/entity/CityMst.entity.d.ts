@@ -1,4 +1,4 @@
-export declare class CityMaster {
+export declare class CityMst {
     prefecture: string;
     prefName: string;
     city: string;

@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryColumn } from 'typeorm';
 
 @Entity()
-export class CityMaster {
+export class CityMst {
   @PrimaryColumn()
   prefecture: string;
 

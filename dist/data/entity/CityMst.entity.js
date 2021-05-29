@@ -9,36 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityMaster = void 0;
+exports.CityMst = void 0;
 const typeorm_1 = require("typeorm");
-let CityMaster = class CityMaster {
+let CityMst = class CityMst {
 };
 __decorate([
     typeorm_1.PrimaryColumn(),
     __metadata("design:type", String)
-], CityMaster.prototype, "prefecture", void 0);
+], CityMst.prototype, "prefecture", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], CityMaster.prototype, "prefName", void 0);
+], CityMst.prototype, "prefName", void 0);
 __decorate([
     typeorm_1.PrimaryColumn(),
     __metadata("design:type", String)
-], CityMaster.prototype, "city", void 0);
+], CityMst.prototype, "city", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], CityMaster.prototype, "cityName", void 0);
+], CityMst.prototype, "cityName", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], CityMaster.prototype, "activeImage", void 0);
+], CityMst.prototype, "activeImage", void 0);
 __decorate([
     typeorm_1.Column(),
     __metadata("design:type", String)
-], CityMaster.prototype, "normalImage", void 0);
-CityMaster = __decorate([
+], CityMst.prototype, "normalImage", void 0);
+CityMst = __decorate([
     typeorm_1.Entity()
-], CityMaster);
-exports.CityMaster = CityMaster;
-//# sourceMappingURL=CityMaster.entity.js.map
+], CityMst);
+exports.CityMst = CityMst;
+//# sourceMappingURL=CityMst.entity.js.map
