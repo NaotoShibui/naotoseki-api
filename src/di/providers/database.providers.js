@@ -19,11 +19,11 @@ export const databaseProviders = [
       // ssl: {
       //   ca: process.env.SSL_CERT,
       // },
-      // extra: {
-      //   ssl: {
-      //     rejectUnauthorized: false
-      //   }
-      // },
+      extra: {
+        ssl: {
+          rejectUnauthorized: false
+        }
+      },
       synchronize: true,
     }),
   },
