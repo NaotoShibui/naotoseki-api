@@ -27,7 +27,7 @@ export const databaseProviders = [
           rejectUnauthorized: false
         }
       },
-      synchronize: true,
+      synchronize: false,
     }),
   },
 ];

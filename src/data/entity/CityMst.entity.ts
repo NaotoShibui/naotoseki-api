@@ -14,9 +14,13 @@ export class CityMst {
   @Column()
   cityName: string;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   activeImage: string;
 
-  @Column()
+  @Column({
+    nullable: true
+  })
   normalImage: string;
 }
