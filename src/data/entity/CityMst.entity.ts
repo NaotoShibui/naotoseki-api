@@ -1,26 +1,36 @@
-import { Entity, Column, PrimaryColumn } from 'typeorm';
+import { Entity, Column, PrimaryColumn, BaseEntity } from 'typeorm';
 
-@Entity()
-export class CityMst {
-  @PrimaryColumn()
+@Entity('city_mst')
+export class CityMst extends BaseEntity {
+  @PrimaryColumn({
+    name: 'prefecture'
+  })
   prefecture: string;
 
-  @Column()
+  @Column({
+    name: 'pref_name'
+  })
   prefName: string;
 
-  @PrimaryColumn()
+  @PrimaryColumn({
+    name: 'city'
+  })
   city: string;
 
-  @Column()
+  @Column({
+    name: 'city_name'
+  })
   cityName: string;
 
   @Column({
-    nullable: true
+    nullable: true,
+    name: 'active_image'
   })
   activeImage: string;
 
   @Column({
-    nullable: true
+    nullable: true,
+    name: 'normal_image'
   })
   normalImage: string;
 }
