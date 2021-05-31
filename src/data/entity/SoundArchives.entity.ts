@@ -24,7 +24,7 @@ export class SoundArchivesEntity extends BaseEntity {
   place: string;
   
   @PrimaryColumn({
-    name: 'recordin_date'
+    name: 'recording_date'
   })
   recordingDate: Date;
   

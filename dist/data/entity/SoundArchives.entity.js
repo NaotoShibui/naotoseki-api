@@ -40,7 +40,7 @@ __decorate([
 ], SoundArchivesEntity.prototype, "place", void 0);
 __decorate([
     typeorm_1.PrimaryColumn({
-        name: 'recordin_date'
+        name: 'recording_date'
     }),
     __metadata("design:type", Date)
 ], SoundArchivesEntity.prototype, "recordingDate", void 0);

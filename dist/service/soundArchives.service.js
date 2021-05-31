@@ -28,6 +28,9 @@ let SoundArchivesService = class SoundArchivesService {
                 .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
                 .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
                 .getMany();
+            console.log('================= entity');
+            console.log(entities);
+            console.log('========================');
             let outVos = [];
             entities.forEach(entity => {
                 outVos.push(class_transformer_1.plainToClass(SoundArchivesOutVo_1.default, entity));
@@ -37,6 +40,9 @@ let SoundArchivesService = class SoundArchivesService {
                 total,
                 results: outVos
             };
+            console.log('================= result');
+            console.log(result);
+            console.log('========================');
             return result;
         }
         catch (e) {

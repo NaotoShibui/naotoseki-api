@@ -28,6 +28,9 @@ let SoundArchivesController = class SoundArchivesController {
         try {
             const outVos = await this.soundArchivesService.findByCity(params.prefecture, query.city);
             const response = class_transformer_1.plainToClass(GetSoundArchivesListResponse_1.default, outVos);
+            console.log('================ response');
+            console.log(response);
+            console.log('=========================');
             return response;
         }
         catch (e) {
