@@ -60,6 +60,5 @@ export class SoundArchivesEntity extends BaseEntity {
   isRepaired: boolean;
 
   @ManyToOne(type => PlaceMstEntity, place => place.soundArchives)
-  @JoinColumn({ name: 'city' })
   placeMst?: PlaceMstEntity;
 }

@@ -34,6 +34,6 @@ export class PlaceMstEntity extends BaseEntity {
   })
   pointRatioY: number;
 
-  @OneToMany(type => SoundArchivesEntity, soundArchive => soundArchive.city)
+  @OneToMany(type => SoundArchivesEntity, soundArchive => soundArchive.place)
   soundArchives: SoundArchivesEntity[];
 }
