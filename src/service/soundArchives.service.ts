@@ -16,13 +16,9 @@ export class SoundArchivesService {
   async findByCity(prefecture: string, city: string): Promise<SoundArchivesListOutVo> {
     try{
       const entities: SoundArchivesEntity[] =  await this.soundArchivesRepository.createQueryBuilder(constants.SOUND_ARCHIVES)
-        .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
-        .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
+        .where(`${constants.SOUND_ARCHIVES}.prefecture = :prefecture`, { prefecture })
+        .andWhere(`${constants.SOUND_ARCHIVES}.city = :city`, { city })
         .getMany();
-  
-      console.log('================= entity');
-      console.log(entities);
-      console.log('========================');
 
       let outVos: SoundArchivesOutVo[] = [];
       entities.forEach(entity => {
@@ -35,11 +31,6 @@ export class SoundArchivesService {
         results: outVos
       }
 
-      console.log('================= result');
-      console.log(result);
-      console.log('========================');
-      
-      
       return result;
     } catch(e) {
       console.log(e);
@@ -49,8 +40,8 @@ export class SoundArchivesService {
   async getCount(prefecture: string = '', city: string = ''): Promise<number> {
     const query: SelectQueryBuilder<SoundArchivesEntity> = this.soundArchivesRepository.createQueryBuilder(constants.SOUND_ARCHIVES);
     if(prefecture != ''){
-      query.where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture });
-      if(city != '') query.andWhere(`${constants.PLACE_MST}.city = :city`, { city });
+      query.where(`${constants.SOUND_ARCHIVES}.prefecture = :prefecture`, { prefecture });
+      if(city != '') query.andWhere(`${constants.SOUND_ARCHIVES}.city = :city`, { city });
     }
 
     return await query.getCount();
