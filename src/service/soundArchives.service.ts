@@ -20,6 +20,10 @@ export class SoundArchivesService {
         .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
         .getMany();
   
+      console.log('================= entity');
+      console.log(entities);
+      console.log('========================');
+
       let outVos: SoundArchivesOutVo[] = [];
       entities.forEach(entity => {
         outVos.push(plainToClass(SoundArchivesOutVo, entity));
@@ -30,6 +34,11 @@ export class SoundArchivesService {
         total,
         results: outVos
       }
+
+      console.log('================= result');
+      console.log(result);
+      console.log('========================');
+      
       
       return result;
     } catch(e) {

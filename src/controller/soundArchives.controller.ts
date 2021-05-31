@@ -15,6 +15,10 @@ export class SoundArchivesController {
     try{
       const outVos: SoundArchivesListOutVo = await this.soundArchivesService.findByCity(params.prefecture, query.city);
       const response: GetSoundArchivesListResponse = plainToClass(GetSoundArchivesListResponse, outVos);
+      console.log('================ response');
+      console.log(response);
+      console.log('=========================');
+
       return response;
     } catch(e) {
       console.log(e);
