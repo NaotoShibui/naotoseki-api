@@ -1,0 +1,1 @@
+{"version":3,"file":"soundArchives.providers.js","sourceRoot":"","sources":["../../../src/di/providers/soundArchives.providers.ts"],"names":[],"mappings":";;;AACA,iFAA6E;AAC7E,6CAA6C;AAEhC,QAAA,sBAAsB,GAAG;IACpC;QACE,OAAO,EAAE,SAAS,CAAC,yBAAyB;QAC5C,UAAU,EAAE,CAAC,UAAsB,EAAE,EAAE,CAAC,UAAU,CAAC,aAAa,CAAC,0CAAmB,CAAC;QACrF,MAAM,EAAE,CAAC,SAAS,CAAC,mBAAmB,CAAC;KACxC;CACF,CAAC"}

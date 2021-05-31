@@ -10,35 +10,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_transformer_1 = require("class-transformer");
-let PlaceMstOutVo = class PlaceMstOutVo {
+let GetSoundArchivesResponse = class GetSoundArchivesResponse {
 };
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "prefecture", void 0);
+], GetSoundArchivesResponse.prototype, "title", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "city", void 0);
+], GetSoundArchivesResponse.prototype, "prefecture", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "place", void 0);
+], GetSoundArchivesResponse.prototype, "city", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "placeName", void 0);
+], GetSoundArchivesResponse.prototype, "place", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Date)
+], GetSoundArchivesResponse.prototype, "recordingDate", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "pointRatioX", void 0);
+], GetSoundArchivesResponse.prototype, "downloadLink", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], PlaceMstOutVo.prototype, "pointRatioY", void 0);
-PlaceMstOutVo = __decorate([
+], GetSoundArchivesResponse.prototype, "fileLength", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], GetSoundArchivesResponse.prototype, "description", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], GetSoundArchivesResponse.prototype, "isNormalized", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], GetSoundArchivesResponse.prototype, "isNoiseReducted", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], GetSoundArchivesResponse.prototype, "isRepaired", void 0);
+GetSoundArchivesResponse = __decorate([
     class_transformer_1.Exclude()
-], PlaceMstOutVo);
-Object.seal(PlaceMstOutVo);
-exports.default = PlaceMstOutVo;
-//# sourceMappingURL=PlaceMstOutVo.js.map
+], GetSoundArchivesResponse);
+Object.seal(GetSoundArchivesResponse);
+exports.default = GetSoundArchivesResponse;
+//# sourceMappingURL=GetSoundArchivesResponse.js.map

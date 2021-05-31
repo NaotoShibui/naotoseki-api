@@ -10,35 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_transformer_1 = require("class-transformer");
-let GetPlaceMstResponse = class GetPlaceMstResponse {
+let SoundArchivesListOutVo = class SoundArchivesListOutVo {
 };
 __decorate([
     class_transformer_1.Expose(),
-    __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "prefecture", void 0);
-__decorate([
-    class_transformer_1.Expose(),
-    __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "city", void 0);
-__decorate([
-    class_transformer_1.Expose(),
-    __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "place", void 0);
-__decorate([
-    class_transformer_1.Expose(),
-    __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "placeName", void 0);
-__decorate([
-    class_transformer_1.Expose(),
     __metadata("design:type", Number)
-], GetPlaceMstResponse.prototype, "pointRatioX", void 0);
+], SoundArchivesListOutVo.prototype, "total", void 0);
 __decorate([
     class_transformer_1.Expose(),
-    __metadata("design:type", Number)
-], GetPlaceMstResponse.prototype, "pointRatioY", void 0);
-GetPlaceMstResponse = __decorate([
+    __metadata("design:type", Array)
+], SoundArchivesListOutVo.prototype, "results", void 0);
+SoundArchivesListOutVo = __decorate([
     class_transformer_1.Exclude()
-], GetPlaceMstResponse);
-Object.seal(GetPlaceMstResponse);
-exports.default = GetPlaceMstResponse;
-//# sourceMappingURL=GetPlaceMstResponse.js.map
+], SoundArchivesListOutVo);
+Object.seal(SoundArchivesListOutVo);
+exports.default = SoundArchivesListOutVo;
+//# sourceMappingURL=SoundArchivesListOutVo.js.map

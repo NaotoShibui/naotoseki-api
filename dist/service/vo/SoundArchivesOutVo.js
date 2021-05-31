@@ -10,35 +10,55 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_transformer_1 = require("class-transformer");
-let GetPlaceMstResponse = class GetPlaceMstResponse {
+let SoundArchivesOutVo = class SoundArchivesOutVo {
 };
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "prefecture", void 0);
+], SoundArchivesOutVo.prototype, "title", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "city", void 0);
+], SoundArchivesOutVo.prototype, "prefecture", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "place", void 0);
+], SoundArchivesOutVo.prototype, "city", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetPlaceMstResponse.prototype, "placeName", void 0);
+], SoundArchivesOutVo.prototype, "place", void 0);
 __decorate([
     class_transformer_1.Expose(),
-    __metadata("design:type", Number)
-], GetPlaceMstResponse.prototype, "pointRatioX", void 0);
+    __metadata("design:type", Date)
+], SoundArchivesOutVo.prototype, "recordingDate", void 0);
 __decorate([
     class_transformer_1.Expose(),
-    __metadata("design:type", Number)
-], GetPlaceMstResponse.prototype, "pointRatioY", void 0);
-GetPlaceMstResponse = __decorate([
+    __metadata("design:type", String)
+], SoundArchivesOutVo.prototype, "downloadLink", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], SoundArchivesOutVo.prototype, "fileLength", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], SoundArchivesOutVo.prototype, "description", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], SoundArchivesOutVo.prototype, "isNormalized", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], SoundArchivesOutVo.prototype, "isNoiseReducted", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Boolean)
+], SoundArchivesOutVo.prototype, "isRepaired", void 0);
+SoundArchivesOutVo = __decorate([
     class_transformer_1.Exclude()
-], GetPlaceMstResponse);
-Object.seal(GetPlaceMstResponse);
-exports.default = GetPlaceMstResponse;
-//# sourceMappingURL=GetPlaceMstResponse.js.map
+], SoundArchivesOutVo);
+Object.seal(SoundArchivesOutVo);
+exports.default = SoundArchivesOutVo;
+//# sourceMappingURL=SoundArchivesOutVo.js.map

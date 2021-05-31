@@ -3,7 +3,7 @@ declare class PlaceMstOutVo {
     city: string;
     place: string;
     placeName: string;
-    point_ratio_x: string;
-    point_ratio_y: string;
+    pointRatioX: string;
+    pointRatioY: string;
 }
 export default PlaceMstOutVo;

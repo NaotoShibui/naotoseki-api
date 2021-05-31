@@ -2,8 +2,8 @@ declare class GetPlaceMstResponse {
     prefecture: string;
     city: string;
     place: string;
-    place_name: string;
-    point_ratio_x: number;
-    point_ratio_y: number;
+    placeName: string;
+    pointRatioX: number;
+    pointRatioY: number;
 }
 export default GetPlaceMstResponse;
