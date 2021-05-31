@@ -15,10 +15,10 @@ class PlaceMstOutVo {
   placeName: string;
   
   @Expose()
-  point_ratio_x: string;
+  pointRatioX: string;
   
   @Expose()
-  point_ratio_y: string;
+  pointRatioY: string;
 }
 
 Object.seal(PlaceMstOutVo);
