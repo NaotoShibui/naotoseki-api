@@ -34,15 +34,18 @@ export class PlaceMstService {
 
   async findByCity(prefecture: string, city: string): Promise<PlaceMstOutVo> {
     try{
+      console.log('Param1 : ', prefecture);
+      console.log('Param2: ', city);
+
       const query: SelectQueryBuilder<PlaceMstEntity> =  this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
         .leftJoinAndSelect('place_mst.soundArchives', 'sound_archives')
         // .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture AND place_mst.city = sound_archives.city')
-        // .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
-        // .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
+        .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
+        .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
       
-        console.log('=============== query');
-        console.log(query.getSql());
-        console.log('======================');
+      console.log('=============== query');
+      console.log(query.getSql());
+      console.log('======================');
 
       const entity: PlaceMstEntity = await query.getOne();
       console.log('================== entity');
