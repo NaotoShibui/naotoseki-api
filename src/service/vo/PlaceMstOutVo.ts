@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import SoundArchivesOutVo from './SoundArchivesOutVo';
 
 @Exclude()
 class PlaceMstOutVo {
@@ -19,6 +20,9 @@ class PlaceMstOutVo {
   
   @Expose()
   pointRatioY: string;
+
+  @Expose()
+  soundArchives: SoundArchivesOutVo;
 }
 
 Object.seal(PlaceMstOutVo);

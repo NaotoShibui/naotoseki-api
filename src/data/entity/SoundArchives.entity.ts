@@ -1,6 +1,6 @@
 import { Entity, Column, PrimaryColumn, BaseEntity, ManyToOne, JoinColumn } from 'typeorm';
 import * as constants from '../../constants';
-import { CityMstEntity } from './CityMst.entity';
+import { PlaceMstEntity } from './PlaceMst.entity';
 
 @Entity(constants.SOUND_ARCHIVES)
 export class SoundArchivesEntity extends BaseEntity {
@@ -59,7 +59,7 @@ export class SoundArchivesEntity extends BaseEntity {
   })
   isRepaired: boolean;
 
-  @ManyToOne(type => CityMstEntity, city => city.soundArchives)
+  @ManyToOne(type => PlaceMstEntity, place => place.soundArchives)
   @JoinColumn({ name: 'city' })
-  cityMst?: CityMstEntity;
+  placeMst?: PlaceMstEntity;
 }

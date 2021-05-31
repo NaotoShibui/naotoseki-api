@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn, BaseEntity } from 'typeorm';
+import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
 import * as constants from '../../constants';
+import { SoundArchivesEntity } from './SoundArchives.entity';
 
 @Entity(constants.PLACE_MST)
 export class PlaceMstEntity extends BaseEntity {
@@ -32,4 +33,7 @@ export class PlaceMstEntity extends BaseEntity {
     name: 'point_ratio_y'
   })
   pointRatioY: number;
+
+  @OneToMany(type => SoundArchivesEntity, soundArchive => soundArchive.city)
+  soundArchives: SoundArchivesEntity[];
 }

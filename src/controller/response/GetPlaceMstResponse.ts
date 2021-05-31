@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import GetSoundArchivesResponse from './GetSoundArchivesResponse';
 
 @Exclude()
 class GetPlaceMstResponse {
@@ -19,6 +20,9 @@ class GetPlaceMstResponse {
 
   @Expose()
   pointRatioY: number;
+
+  @Expose()
+  soundArchives: GetSoundArchivesResponse;
 }
 
 Object.seal(GetPlaceMstResponse);

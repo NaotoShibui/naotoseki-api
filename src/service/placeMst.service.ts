@@ -1,6 +1,6 @@
 import { Injectable, Inject } from '@nestjs/common';
 import { plainToClass } from 'class-transformer';
-import { Repository } from 'typeorm';
+import { Repository, SelectQueryBuilder } from 'typeorm';
 import { PlaceMstEntity } from '../data/entity/PlaceMst.entity';
 import PlaceMstListOutVo from './vo/PlaceMstListOutVo';
 import PlaceMstOutVo from './vo/PlaceMstOutVo';
@@ -34,11 +34,17 @@ export class PlaceMstService {
 
   async findByCity(prefecture: string, city: string, place: string): Promise<PlaceMstOutVo> {
     try{
-      const entity: PlaceMstEntity =  await this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
+      const query: SelectQueryBuilder<PlaceMstEntity> =  this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
+        .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture and place_mst.city = sound_archives.city')
         .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
         .andWhere(`${constants.PLACE_MST}.place = :place`, { place })
-        .getOne();
+      
+        console.log('=============== query');
+        console.log(query.getSql());
+        console.log('======================');
+
+      const entity: PlaceMstEntity = await query.getOne();
 
       const outVo: PlaceMstOutVo = plainToClass(PlaceMstOutVo, entity);
       return outVo;
