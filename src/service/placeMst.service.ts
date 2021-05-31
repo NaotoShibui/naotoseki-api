@@ -35,17 +35,10 @@ export class PlaceMstService {
   async findByCity(prefecture: string, city: string): Promise<PlaceMstOutVo> {
     try{
       const query: SelectQueryBuilder<PlaceMstEntity> =  this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
-        .select('place_mst.prefecture', 'prefecture')
-        .addSelect('place_mst.city', 'city')
-        .addSelect('place_mst.place', 'place')
-        .addSelect('place_mst.place_name', 'placeName')
-        .addSelect('place_mst.point_ratio_x', 'pointRatioX')
-        .addSelect('place_mst.point_ratio_y', 'pointRatioY')
-        .addSelect('sound_archives.title', 'title')
         .leftJoinAndSelect('place_mst.soundArchives', 'sound_archives')
         // .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture AND place_mst.city = sound_archives.city')
-        .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
-        .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
+        // .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
+        // .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
       
         console.log('=============== query');
         console.log(query.getSql());
