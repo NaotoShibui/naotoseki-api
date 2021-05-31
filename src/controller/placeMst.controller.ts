@@ -26,7 +26,7 @@ export class PlaceMstController {
   @Get(':prefecture')
   async getCityMstByPrefecture(@Param() params: PrefectureParam, @Query() placeInfo: PlaceInfoQuery): Promise<GetPlaceMstResponse> {
     try{
-      const outVo: PlaceMstOutVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city, placeInfo.place);
+      const outVo: PlaceMstOutVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city);
       const response: GetPlaceMstResponse = plainToClass(GetPlaceMstResponse, outVo);
       return response;
     } catch(e) {

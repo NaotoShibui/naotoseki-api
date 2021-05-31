@@ -32,19 +32,28 @@ export class PlaceMstService {
     }
   }
 
-  async findByCity(prefecture: string, city: string, place: string): Promise<PlaceMstOutVo> {
+  async findByCity(prefecture: string, city: string): Promise<PlaceMstOutVo> {
     try{
       const query: SelectQueryBuilder<PlaceMstEntity> =  this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
+        .select('place_mst.prefecture', 'prefecture')
+        .addSelect('place_mst.city', 'city')
+        .addSelect('place_mst.place', 'place')
+        .addSelect('place_mst.place_name', 'placeName')
+        .addSelect('place_mst.point_ratio_x', 'pointRatioX')
+        .addSelect('place_mst.point_ratio_y', 'pointRatioY')
+        .addSelect('sound_archives.title', 'title')
         .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture and place_mst.city = sound_archives.city')
         .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
-        .andWhere(`${constants.PLACE_MST}.place = :place`, { place })
       
         console.log('=============== query');
         console.log(query.getSql());
         console.log('======================');
 
       const entity: PlaceMstEntity = await query.getOne();
+      console.log('================== entity');
+      console.log(entity);
+      console.log('========================');
 
       const outVo: PlaceMstOutVo = plainToClass(PlaceMstOutVo, entity);
       return outVo;
