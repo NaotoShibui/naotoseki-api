@@ -1,9 +1,10 @@
 import { Repository } from 'typeorm';
-import { CityMst } from '../data/entity/CityMst.entity';
+import { CityMstEntity } from '../data/entity/CityMst.entity';
 import CityMstListOutVo from './vo/CityMstListOutVo';
 export declare class CityMstService {
     private cityMstRepository;
-    constructor(cityMstRepository: Repository<CityMst>);
+    constructor(cityMstRepository: Repository<CityMstEntity>);
     findAll(): Promise<CityMstListOutVo>;
-    getCount(): Promise<number>;
+    findByPrefecture(prefecture: string): Promise<CityMstListOutVo>;
+    getCount(prefecture?: string): Promise<number>;
 }

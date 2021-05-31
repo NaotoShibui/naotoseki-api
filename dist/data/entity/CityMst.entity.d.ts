@@ -1,5 +1,5 @@
 import { BaseEntity } from 'typeorm';
-export declare class CityMst extends BaseEntity {
+export declare class CityMstEntity extends BaseEntity {
     prefecture: string;
     prefName: string;
     city: string;

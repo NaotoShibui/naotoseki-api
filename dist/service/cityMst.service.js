@@ -17,13 +17,14 @@ const common_1 = require("@nestjs/common");
 const class_transformer_1 = require("class-transformer");
 const typeorm_1 = require("typeorm");
 const CityMstOutVo_1 = require("./vo/CityMstOutVo");
+const constants = require("../constants");
 let CityMstService = class CityMstService {
     constructor(cityMstRepository) {
         this.cityMstRepository = cityMstRepository;
     }
     async findAll() {
         try {
-            const entities = await this.cityMstRepository.createQueryBuilder("city_mst").getMany();
+            const entities = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST).getMany();
             const total = await this.getCount();
             let outVos = [];
             entities.forEach(entity => {
@@ -39,14 +40,36 @@ let CityMstService = class CityMstService {
             console.log(e);
         }
     }
-    async getCount() {
-        const total = await this.cityMstRepository.createQueryBuilder("city_mst").getCount();
+    async findByPrefecture(prefecture) {
+        try {
+            const entities = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
+                .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture }).getMany();
+            const total = await this.getCount(prefecture);
+            let outVos = [];
+            entities.forEach(entity => {
+                outVos.push(class_transformer_1.plainToClass(CityMstOutVo_1.default, entity));
+            });
+            const result = {
+                total,
+                results: outVos
+            };
+            return result;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+    async getCount(prefecture = '') {
+        const query = this.cityMstRepository.createQueryBuilder(constants.CITY_MST);
+        if (prefecture != '')
+            query.where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture });
+        const total = await query.getCount();
         return total;
     }
 };
 CityMstService = __decorate([
     common_1.Injectable(),
-    __param(0, common_1.Inject('CITY_MST_REPOSITORY')),
+    __param(0, common_1.Inject(constants.CITY_MST_REPOSITORY)),
     __metadata("design:paramtypes", [typeorm_1.Repository])
 ], CityMstService);
 exports.CityMstService = CityMstService;

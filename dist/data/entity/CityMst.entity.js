@@ -9,50 +9,51 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityMst = void 0;
+exports.CityMstEntity = void 0;
 const typeorm_1 = require("typeorm");
-let CityMst = class CityMst extends typeorm_1.BaseEntity {
+const constants = require("../../constants");
+let CityMstEntity = class CityMstEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
     typeorm_1.PrimaryColumn({
         name: 'prefecture'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "prefecture", void 0);
+], CityMstEntity.prototype, "prefecture", void 0);
 __decorate([
     typeorm_1.Column({
         name: 'pref_name'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "prefName", void 0);
+], CityMstEntity.prototype, "prefName", void 0);
 __decorate([
     typeorm_1.PrimaryColumn({
         name: 'city'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "city", void 0);
+], CityMstEntity.prototype, "city", void 0);
 __decorate([
     typeorm_1.Column({
         name: 'city_name'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "cityName", void 0);
+], CityMstEntity.prototype, "cityName", void 0);
 __decorate([
     typeorm_1.Column({
         nullable: true,
         name: 'active_image'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "activeImage", void 0);
+], CityMstEntity.prototype, "activeImage", void 0);
 __decorate([
     typeorm_1.Column({
         nullable: true,
         name: 'normal_image'
     }),
     __metadata("design:type", String)
-], CityMst.prototype, "normalImage", void 0);
-CityMst = __decorate([
-    typeorm_1.Entity('city_mst')
-], CityMst);
-exports.CityMst = CityMst;
+], CityMstEntity.prototype, "normalImage", void 0);
+CityMstEntity = __decorate([
+    typeorm_1.Entity(constants.CITY_MST)
+], CityMstEntity);
+exports.CityMstEntity = CityMstEntity;
 //# sourceMappingURL=CityMst.entity.js.map

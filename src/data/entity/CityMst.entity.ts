@@ -1,7 +1,8 @@
 import { Entity, Column, PrimaryColumn, BaseEntity } from 'typeorm';
+import * as constants from '../../constants';
 
-@Entity('city_mst')
-export class CityMst extends BaseEntity {
+@Entity(constants.CITY_MST)
+export class CityMstEntity extends BaseEntity {
   @PrimaryColumn({
     name: 'prefecture'
   })

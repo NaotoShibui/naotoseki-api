@@ -1,10 +1,11 @@
 import { Connection, Repository } from 'typeorm';
-import { CityMst } from '../../data/entity/CityMst.entity';
+import { CityMstEntity } from '../../data/entity/CityMst.entity';
+import * as constants from '../../constants';
 
 export const cityMstProviders = [
   {
-    provide: 'CITY_MST_REPOSITORY',
-    useFactory: (connection: Connection) => connection.getRepository(CityMst),
-    inject: ['DATABASE_CONNECTION'],
+    provide: constants.CITY_MST_REPOSITORY,
+    useFactory: (connection: Connection) => connection.getRepository(CityMstEntity),
+    inject: [constants.DATABASE_CONNECTION],
   },
 ];
