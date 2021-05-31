@@ -1,5 +1,4 @@
-import { BaseEntity } from 'typeorm';
-export declare class CityMst extends BaseEntity {
+declare class GetCityMstOutVo {
     prefecture: string;
     prefName: string;
     city: string;
@@ -7,3 +6,4 @@ export declare class CityMst extends BaseEntity {
     activeImage: string;
     normalImage: string;
 }
+export default GetCityMstOutVo;

@@ -14,13 +14,34 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityMstService = void 0;
 const common_1 = require("@nestjs/common");
+const class_transformer_1 = require("class-transformer");
 const typeorm_1 = require("typeorm");
+const CityMstOutVo_1 = require("./vo/CityMstOutVo");
 let CityMstService = class CityMstService {
     constructor(cityMstRepository) {
         this.cityMstRepository = cityMstRepository;
     }
     async findAll() {
-        return this.cityMstRepository.find();
+        try {
+            const entities = await this.cityMstRepository.createQueryBuilder("city_mst").getMany();
+            const total = await this.getCount();
+            let outVos = [];
+            entities.forEach(entity => {
+                outVos.push(class_transformer_1.plainToClass(CityMstOutVo_1.default, entity));
+            });
+            const result = {
+                total,
+                results: outVos
+            };
+            return result;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+    async getCount() {
+        const total = await this.cityMstRepository.createQueryBuilder("city_mst").getCount();
+        return total;
     }
 };
 CityMstService = __decorate([

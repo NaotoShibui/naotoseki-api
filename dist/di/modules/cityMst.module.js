@@ -11,11 +11,13 @@ const common_1 = require("@nestjs/common");
 const database_module_1 = require("./database.module");
 const cityMst_providers_1 = require("../providers/cityMst.providers");
 const cityMst_service_1 = require("../../service/cityMst.service");
+const cityMst_controller_1 = require("../../controller/cityMst.controller");
 let CityMstModule = class CityMstModule {
 };
 CityMstModule = __decorate([
     common_1.Module({
         imports: [database_module_1.DatabaseModule],
+        controllers: [cityMst_controller_1.CityMstController],
         providers: [
             ...cityMst_providers_1.cityMstProviders,
             cityMst_service_1.CityMstService,

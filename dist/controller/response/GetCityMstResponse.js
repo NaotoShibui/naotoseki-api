@@ -9,50 +9,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CityMst = void 0;
-const typeorm_1 = require("typeorm");
-let CityMst = class CityMst extends typeorm_1.BaseEntity {
+const class_transformer_1 = require("class-transformer");
+let GetCityMstResponse = class GetCityMstResponse {
 };
 __decorate([
-    typeorm_1.PrimaryColumn({
-        name: 'prefecture'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "prefecture", void 0);
+], GetCityMstResponse.prototype, "prefecture", void 0);
 __decorate([
-    typeorm_1.Column({
-        name: 'pref_name'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "prefName", void 0);
+], GetCityMstResponse.prototype, "prefName", void 0);
 __decorate([
-    typeorm_1.PrimaryColumn({
-        name: 'city'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "city", void 0);
+], GetCityMstResponse.prototype, "city", void 0);
 __decorate([
-    typeorm_1.Column({
-        name: 'city_name'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "cityName", void 0);
+], GetCityMstResponse.prototype, "cityName", void 0);
 __decorate([
-    typeorm_1.Column({
-        nullable: true,
-        name: 'active_image'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "activeImage", void 0);
+], GetCityMstResponse.prototype, "activeImage", void 0);
 __decorate([
-    typeorm_1.Column({
-        nullable: true,
-        name: 'normal_image'
-    }),
+    class_transformer_1.Expose(),
     __metadata("design:type", String)
-], CityMst.prototype, "normalImage", void 0);
-CityMst = __decorate([
-    typeorm_1.Entity('city_mst')
-], CityMst);
-exports.CityMst = CityMst;
-//# sourceMappingURL=CityMst.entity.js.map
+], GetCityMstResponse.prototype, "normalImage", void 0);
+GetCityMstResponse = __decorate([
+    class_transformer_1.Exclude()
+], GetCityMstResponse);
+Object.seal(GetCityMstResponse);
+exports.default = GetCityMstResponse;
+//# sourceMappingURL=GetCityMstResponse.js.map

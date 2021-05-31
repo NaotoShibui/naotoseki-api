@@ -13,15 +13,9 @@ export const databaseProviders = [
       entities: [
         __dirname + '/../../data/entity/*.entity{.ts,.js}',
       ],
-      // entities: [
-      //     __dirname + '../../data/entity/*.entity{.ts,.js}',
-      // ],
       extra: {
         ssl: true
       },
-      // ssl: {
-      //   ca: process.env.SSL_CERT,
-      // },
       extra: {
         ssl: {
           rejectUnauthorized: false

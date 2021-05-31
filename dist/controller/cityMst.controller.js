@@ -12,19 +12,29 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityMstController = void 0;
 const common_1 = require("@nestjs/common");
 const cityMst_service_1 = require("../service/cityMst.service");
+const class_transformer_1 = require("class-transformer");
+const CityMstListOutVo_1 = require("../service/vo/CityMstListOutVo");
+const GetCityMstListResponse_1 = require("./response/GetCityMstListResponse");
 let CityMstController = class CityMstController {
     constructor(cityMstService) {
         this.cityMstService = cityMstService;
     }
-    getCityMaster() {
-        return this.cityMstService.findAll();
+    async getCityMaster() {
+        try {
+            const outVos = await this.cityMstService.findAll();
+            const response = class_transformer_1.plainToClass(GetCityMstListResponse_1.default, outVos);
+            return response;
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 };
 __decorate([
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], CityMstController.prototype, "getCityMaster", null);
 CityMstController = __decorate([
     common_1.Controller('city'),
