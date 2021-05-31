@@ -42,7 +42,8 @@ export class PlaceMstService {
         .addSelect('place_mst.point_ratio_x', 'pointRatioX')
         .addSelect('place_mst.point_ratio_y', 'pointRatioY')
         .addSelect('sound_archives.title', 'title')
-        .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture AND place_mst.city = sound_archives.city')
+        .leftJoinAndSelect('place_mst.soundArchives', 'sound_archive')
+        // .leftJoin('sound_archives', 'sound_archives', 'place_mst.prefecture = sound_archives.prefecture AND place_mst.city = sound_archives.city')
         .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
       
