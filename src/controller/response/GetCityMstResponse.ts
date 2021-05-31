@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import GetSoundArchivesResponse from './GetSoundArchivesResponse';
 
 @Exclude()
 class GetCityMstResponse {
@@ -19,6 +20,9 @@ class GetCityMstResponse {
 
   @Expose()
   normalImage: string;
+
+  @Expose()
+  soundArchives: GetSoundArchivesResponse[];
 }
 
 Object.seal(GetCityMstResponse);

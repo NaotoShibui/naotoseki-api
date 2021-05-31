@@ -59,6 +59,14 @@ let CityMstService = class CityMstService {
             console.log(e);
         }
     }
+    async findByCity(prefecture, city) {
+        const entity = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
+            .leftJoin('sound_archives', 'sound_archives', 'sound_archvies.prefecture = city_mst.prefecture and sound_archives.city = city_mst.city')
+            .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
+            .andWhere(`${constants.CITY_MST}.city = :city`, { city })
+            .getOne();
+        return class_transformer_1.plainToClass(CityMstOutVo_1.default, entity);
+    }
     async getCount(prefecture = '') {
         const query = this.cityMstRepository.createQueryBuilder(constants.CITY_MST);
         if (prefecture != '')

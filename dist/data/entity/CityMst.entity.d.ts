@@ -1,4 +1,5 @@
 import { BaseEntity } from 'typeorm';
+import { SoundArchivesEntity } from './SoundArchives.entity';
 export declare class CityMstEntity extends BaseEntity {
     prefecture: string;
     prefName: string;
@@ -6,4 +7,5 @@ export declare class CityMstEntity extends BaseEntity {
     cityName: string;
     activeImage: string;
     normalImage: string;
+    soundArchives: SoundArchivesEntity[];
 }

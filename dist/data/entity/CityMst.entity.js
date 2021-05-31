@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityMstEntity = void 0;
 const typeorm_1 = require("typeorm");
 const constants = require("../../constants");
+const SoundArchives_entity_1 = require("./SoundArchives.entity");
 let CityMstEntity = class CityMstEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -52,6 +53,10 @@ __decorate([
     }),
     __metadata("design:type", String)
 ], CityMstEntity.prototype, "normalImage", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => SoundArchives_entity_1.SoundArchivesEntity, soundArchive => soundArchive.city),
+    __metadata("design:type", Array)
+], CityMstEntity.prototype, "soundArchives", void 0);
 CityMstEntity = __decorate([
     typeorm_1.Entity(constants.CITY_MST)
 ], CityMstEntity);

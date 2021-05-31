@@ -4,6 +4,8 @@ import { plainToClass } from 'class-transformer';
 import GetCityMstListOutVo from 'src/service/vo/CityMstListOutVo';
 import GetCityMstListResponse from './response/GetCityMstListResponse';
 import PrefectureParam from './request/PrefectureParam';
+import GetCityMstResponse from './response/GetCityMstResponse';
+import GetCityMstOutVo from 'src/service/vo/CityMstOutVo';
 
 @Controller('city')
 export class CityMstController {
@@ -29,5 +31,20 @@ export class CityMstController {
     } catch(e) {
       console.log(e);
     }
+  }
+
+  @Get(':prefecture/:city')
+  async getCityByCity(@Param() params: PrefectureParam): Promise<GetCityMstResponse> {
+    try {
+      const outVo: GetCityMstOutVo = await this.cityMstService.findByCity(params.prefecture, params.city);
+      console.log('================ outVo');
+      console.log(outVo);
+      console.log('=======================');
+      const response: GetCityMstResponse = plainToClass(GetCityMstResponse, outVo);
+      return response;
+    } catch(e) {
+      console.log(e);
+    }
+    
   }
 }

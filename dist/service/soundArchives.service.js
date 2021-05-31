@@ -25,12 +25,9 @@ let SoundArchivesService = class SoundArchivesService {
     async findByCity(prefecture, city) {
         try {
             const entities = await this.soundArchivesRepository.createQueryBuilder(constants.SOUND_ARCHIVES)
-                .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
-                .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
+                .where(`${constants.SOUND_ARCHIVES}.prefecture = :prefecture`, { prefecture })
+                .andWhere(`${constants.SOUND_ARCHIVES}.city = :city`, { city })
                 .getMany();
-            console.log('================= entity');
-            console.log(entities);
-            console.log('========================');
             let outVos = [];
             entities.forEach(entity => {
                 outVos.push(class_transformer_1.plainToClass(SoundArchivesOutVo_1.default, entity));
@@ -40,9 +37,6 @@ let SoundArchivesService = class SoundArchivesService {
                 total,
                 results: outVos
             };
-            console.log('================= result');
-            console.log(result);
-            console.log('========================');
             return result;
         }
         catch (e) {
@@ -52,9 +46,9 @@ let SoundArchivesService = class SoundArchivesService {
     async getCount(prefecture = '', city = '') {
         const query = this.soundArchivesRepository.createQueryBuilder(constants.SOUND_ARCHIVES);
         if (prefecture != '') {
-            query.where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture });
+            query.where(`${constants.SOUND_ARCHIVES}.prefecture = :prefecture`, { prefecture });
             if (city != '')
-                query.andWhere(`${constants.PLACE_MST}.city = :city`, { city });
+                query.andWhere(`${constants.SOUND_ARCHIVES}.city = :city`, { city });
         }
         return await query.getCount();
     }

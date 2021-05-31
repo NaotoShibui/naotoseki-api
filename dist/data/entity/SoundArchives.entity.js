@@ -12,6 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SoundArchivesEntity = void 0;
 const typeorm_1 = require("typeorm");
 const constants = require("../../constants");
+const CityMst_entity_1 = require("./CityMst.entity");
 let SoundArchivesEntity = class SoundArchivesEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -80,6 +81,11 @@ __decorate([
     }),
     __metadata("design:type", Boolean)
 ], SoundArchivesEntity.prototype, "isRepaired", void 0);
+__decorate([
+    typeorm_1.ManyToOne(type => CityMst_entity_1.CityMstEntity, city => city.soundArchives),
+    typeorm_1.JoinColumn({ name: 'city' }),
+    __metadata("design:type", CityMst_entity_1.CityMstEntity)
+], SoundArchivesEntity.prototype, "cityMst", void 0);
 SoundArchivesEntity = __decorate([
     typeorm_1.Entity(constants.SOUND_ARCHIVES)
 ], SoundArchivesEntity);

@@ -36,6 +36,10 @@ __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
 ], GetCityMstResponse.prototype, "normalImage", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Array)
+], GetCityMstResponse.prototype, "soundArchives", void 0);
 GetCityMstResponse = __decorate([
     class_transformer_1.Exclude()
 ], GetCityMstResponse);

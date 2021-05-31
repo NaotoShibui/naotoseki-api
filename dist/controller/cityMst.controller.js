@@ -19,6 +19,8 @@ const class_transformer_1 = require("class-transformer");
 const CityMstListOutVo_1 = require("../service/vo/CityMstListOutVo");
 const GetCityMstListResponse_1 = require("./response/GetCityMstListResponse");
 const PrefectureParam_1 = require("./request/PrefectureParam");
+const GetCityMstResponse_1 = require("./response/GetCityMstResponse");
+const CityMstOutVo_1 = require("../service/vo/CityMstOutVo");
 let CityMstController = class CityMstController {
     constructor(cityMstService) {
         this.cityMstService = cityMstService;
@@ -43,6 +45,16 @@ let CityMstController = class CityMstController {
             console.log(e);
         }
     }
+    async getCityByCity(params) {
+        try {
+            const outVo = await this.cityMstService.findByCity(params.prefecture, params.city);
+            const response = class_transformer_1.plainToClass(GetCityMstResponse_1.default, outVo);
+            return response;
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
 };
 __decorate([
     common_1.Get(),
@@ -57,6 +69,13 @@ __decorate([
     __metadata("design:paramtypes", [PrefectureParam_1.default]),
     __metadata("design:returntype", Promise)
 ], CityMstController.prototype, "getCityMstByPrefecture", null);
+__decorate([
+    common_1.Get(':prefecture/:city'),
+    __param(0, common_1.Param()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [PrefectureParam_1.default]),
+    __metadata("design:returntype", Promise)
+], CityMstController.prototype, "getCityByCity", null);
 CityMstController = __decorate([
     common_1.Controller('city'),
     __metadata("design:paramtypes", [cityMst_service_1.CityMstService])
