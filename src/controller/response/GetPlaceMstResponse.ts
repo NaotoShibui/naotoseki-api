@@ -12,13 +12,13 @@ class GetPlaceMstResponse {
   place: string;
 
   @Expose()
-  place_name: string;
+  placeName: string;
 
   @Expose()
-  point_ratio_x: number;
+  pointRatioX: number;
 
   @Expose()
-  point_ratio_y: number;
+  pointRatioY: number;
 }
 
 Object.seal(GetPlaceMstResponse);
