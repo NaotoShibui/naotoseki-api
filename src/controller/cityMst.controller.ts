@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Header } from '@nestjs/common';
 import { CityMstService } from '../service/cityMst.service';
 import { plainToClass } from 'class-transformer';
 import GetCityMstListOutVo from 'src/service/vo/CityMstListOutVo';
@@ -23,6 +23,7 @@ export class CityMstController {
   }
 
   @Get(':prefecture')
+  @Header('Access-Control-Allow-Origin', 'http://localhost:8080')
   async getCityMstByPrefecture(@Param() params: PrefectureParam): Promise<GetCityMstListResponse> {
     try{
       const outVos: GetCityMstListOutVo = await this.cityMstService.findByPrefecture(params.prefecture);
