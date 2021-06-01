@@ -23,7 +23,7 @@ export class CityMstController {
   }
 
   @Get(':prefecture')
-  @Header('Access-Control-Allow-Origin', 'http://localhost:8080')
+  @Header('Access-Control-Allow-Origin', 'http://localhost:8080/')
   async getCityMstByPrefecture(@Param() params: PrefectureParam): Promise<GetCityMstListResponse> {
     try{
       const outVos: GetCityMstListOutVo = await this.cityMstService.findByPrefecture(params.prefecture);
