@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Header } from '@nestjs/common';
+import { Controller, Get, Param, UseInterceptors } from '@nestjs/common';
 import { CityMstService } from '../service/cityMst.service';
 import { plainToClass } from 'class-transformer';
 import GetCityMstListOutVo from 'src/service/vo/CityMstListOutVo';
@@ -6,6 +6,7 @@ import GetCityMstListResponse from './response/GetCityMstListResponse';
 import PrefectureParam from './request/PrefectureParam';
 import GetCityMstResponse from './response/GetCityMstResponse';
 import GetCityMstOutVo from 'src/service/vo/CityMstOutVo';
+import { CorsAllowInterceptor } from 'src/interceptor/cors.interceptor';
 
 @Controller('city')
 export class CityMstController {
@@ -23,9 +24,7 @@ export class CityMstController {
   }
 
   @Get(':prefecture')
-  @Header('Access-Control-Allow-Origin', '*')
-  @Header('Access-Control-Allow-Methods', 'GET, POST')
-  @Header('Access-Control-Allow-Headers', 'Content-Type, Accept, Referer, sec-ch-ua, sec-ch-ua-mobile, User-Agent')
+  @UseInterceptors(CorsAllowInterceptor)
   async getCityMstByPrefecture(@Param() params: PrefectureParam): Promise<GetCityMstListResponse> {
     try{
       const outVos: GetCityMstListOutVo = await this.cityMstService.findByPrefecture(params.prefecture);
