@@ -13,6 +13,7 @@ export class CityMstController {
   constructor(private readonly cityMstService: CityMstService) {}
 
   @Get()
+  @UseInterceptors(CorsAllowInterceptor)
   async getCityMst(): Promise<GetCityMstListResponse> {
     try{
       const outVos: GetCityMstListOutVo = await this.cityMstService.findAll();

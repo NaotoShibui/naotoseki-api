@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Query } from '@nestjs/common';
+import { Controller, Get, Param, Query, UseInterceptors } from '@nestjs/common';
 import { PlaceMstService } from '../service/placeMst.service';
 import { plainToClass } from 'class-transformer';
 import PlaceMstListOutVo from 'src/service/vo/PlaceMstListOutVo';
@@ -7,12 +7,14 @@ import PrefectureParam from './request/PrefectureParam';
 import PlaceInfoQuery from './request/PlaceInfoQuery';
 import PlaceMstOutVo from 'src/service/vo/PlaceMstOutVo';
 import GetPlaceMstResponse from './response/GetPlaceMstResponse';
+import { CorsAllowInterceptor } from 'src/interceptor/cors.interceptor';
 
 @Controller('place')
 export class PlaceMstController {
   constructor(private readonly placeMstService: PlaceMstService) {}
 
   @Get()
+  @UseInterceptors(CorsAllowInterceptor)
   async getCityMst(): Promise<GetPlaceMstListResponse> {
     try{
       const outVos: PlaceMstListOutVo = await this.placeMstService.findAll();
@@ -24,6 +26,7 @@ export class PlaceMstController {
   }
 
   @Get(':prefecture')
+  @UseInterceptors(CorsAllowInterceptor)
   async getCityMstByPrefecture(@Param() params: PrefectureParam, @Query() placeInfo: PlaceInfoQuery): Promise<GetPlaceMstResponse> {
     try{
       const outVo: PlaceMstOutVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city);
