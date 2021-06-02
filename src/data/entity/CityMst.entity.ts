@@ -1,7 +1,6 @@
 import { Entity, Column, PrimaryColumn, BaseEntity, OneToOne, JoinColumn } from 'typeorm';
 import * as constants from '../../constants';
 import { PlaceMstEntity } from './PlaceMst.entity';
-import { SoundArchivesEntity } from './SoundArchives.entity';
 
 @Entity(constants.CITY_MST)
 export class CityMstEntity extends BaseEntity {

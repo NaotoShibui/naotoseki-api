@@ -35,7 +35,7 @@ export class PlaceMstService {
   async findByCity(prefecture: string, city: string): Promise<PlaceMstOutVo> {
     try{
       const entity: PlaceMstEntity =  await this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
-        .leftJoinAndSelect('city_mst.placeMst', 'city_mst')
+        .leftJoinAndSelect('place_mst.cityMst', 'city_mst')
         .leftJoinAndSelect('place_mst.soundArchives', 'sound_archives')
         .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.PLACE_MST}.city = :city`, { city })

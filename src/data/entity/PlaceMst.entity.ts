@@ -39,9 +39,5 @@ export class PlaceMstEntity extends BaseEntity {
   soundArchives: SoundArchivesEntity[];
 
   @OneToOne(type => CityMstEntity, cityMst => cityMst.placeMst)
-  @JoinColumn([
-    { name: "prefecture", referencedColumnName: "prefecture"},
-    { name: "city", referencedColumnName: "city" }
-  ])
   cityMst: CityMstEntity;
 }
