@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany } from 'typeorm';
+import { Entity, Column, PrimaryColumn, BaseEntity, OneToMany, OneToOne, JoinColumn } from 'typeorm';
 import * as constants from '../../constants';
+import { CityMstEntity } from './CityMst.entity';
 import { SoundArchivesEntity } from './SoundArchives.entity';
 
 @Entity(constants.PLACE_MST)
@@ -36,4 +37,11 @@ export class PlaceMstEntity extends BaseEntity {
 
   @OneToMany(type => SoundArchivesEntity, soundArchive => soundArchive.placeMst)
   soundArchives: SoundArchivesEntity[];
+
+  @OneToOne(type => CityMstEntity, cityMst => cityMst.placeMst)
+  @JoinColumn([
+    { name: "prefecture", referencedColumnName: "prefecture"},
+    { name: "city", referencedColumnName: "city" }
+  ])
+  cityMst: CityMstEntity;
 }

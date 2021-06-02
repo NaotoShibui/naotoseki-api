@@ -1,4 +1,5 @@
 import { Exclude, Expose } from 'class-transformer';
+import GetCityMstResponse from './GetCityMstResponse';
 import GetSoundArchivesResponse from './GetSoundArchivesResponse';
 
 @Exclude()
@@ -23,6 +24,9 @@ class GetPlaceMstResponse {
 
   @Expose()
   soundArchives: GetSoundArchivesResponse;
+
+  @Expose()
+  cityMst: GetCityMstResponse;
 }
 
 Object.seal(GetPlaceMstResponse);

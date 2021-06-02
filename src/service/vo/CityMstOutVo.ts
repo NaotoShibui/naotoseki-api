@@ -1,7 +1,7 @@
 import { Exclude, Expose } from 'class-transformer';
 
 @Exclude()
-class GetCityMstOutVo {
+class CityMstOutVo {
   @Expose()
   prefecture: string;
   
@@ -21,5 +21,5 @@ class GetCityMstOutVo {
   normalImage: string;
 }
 
-Object.seal(GetCityMstOutVo);
-export default GetCityMstOutVo;
+Object.seal(CityMstOutVo);
+export default CityMstOutVo;

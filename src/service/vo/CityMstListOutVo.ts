@@ -2,7 +2,7 @@ import { Exclude, Expose } from 'class-transformer';
 import GetCityMstOutVo from './CityMstOutVo';
 
 @Exclude()
-class GetCityMstLustOutVo {
+class CityMstListOutVo {
   @Expose()
   total: number;
 
@@ -10,5 +10,5 @@ class GetCityMstLustOutVo {
   results: GetCityMstOutVo[];
 }
 
-Object.seal(GetCityMstLustOutVo);
-export default GetCityMstLustOutVo;
+Object.seal(CityMstListOutVo);
+export default CityMstListOutVo;
