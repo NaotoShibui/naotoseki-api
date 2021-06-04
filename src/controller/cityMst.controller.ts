@@ -35,4 +35,16 @@ export class CityMstController {
       console.log(e);
     }
   }
+
+  @Get(':prefecture/:city')
+  @UseInterceptors(CorsAllowInterceptor)
+  async getCityMstByCity(@Param() params: PrefectureParam): Promise<GetCityMstResponse> {
+    try{
+      const outVos: GetCityMstOutVo = await this.cityMstService.findByCity(params.prefecture, params.city);
+      const response:GetCityMstResponse = plainToClass(GetCityMstResponse, outVos);
+      return response;
+    } catch(e) {
+      console.log(e);
+    }
+  }
 }
