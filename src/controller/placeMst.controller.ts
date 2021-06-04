@@ -27,10 +27,10 @@ export class PlaceMstController {
 
   @Get(':prefecture')
   @UseInterceptors(CorsAllowInterceptor)
-  async getCityMstByPrefecture(@Param() params: PrefectureParam, @Query() placeInfo: PlaceInfoQuery): Promise<GetPlaceMstResponse> {
+  async getCityMstByPrefecture(@Param() params: PrefectureParam, @Query() placeInfo: PlaceInfoQuery): Promise<GetPlaceMstListResponse> {
     try{
-      const outVo: PlaceMstOutVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city);
-      const response: GetPlaceMstResponse = plainToClass(GetPlaceMstResponse, outVo);
+      const outVo: PlaceMstListOutVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city);
+      const response: GetPlaceMstListResponse = plainToClass(GetPlaceMstListResponse, outVo);
       return response;
     } catch(e) {
       console.log(e);
