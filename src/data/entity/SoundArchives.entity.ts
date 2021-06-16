@@ -62,7 +62,8 @@ export class SoundArchivesEntity extends BaseEntity {
   @ManyToOne(type => PlaceMstEntity, place => place.soundArchives)
   @JoinColumn([
     { name: "prefecture", referencedColumnName: "prefecture"},
-    { name: "city", referencedColumnName: "city" }
+    { name: "city", referencedColumnName: "city" },
+    { name: "place", referencedColumnName: "place" }
   ])
   placeMst: PlaceMstEntity;
 }
