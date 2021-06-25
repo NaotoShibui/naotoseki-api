@@ -35,7 +35,9 @@ export class CityMstService {
   async findByPrefecture(prefecture: string): Promise<CityMstListOutVo> {
     try{
       const entities: CityMstEntity[] =  await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
-        .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture }).getMany();
+        .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
+        .orderBy('city_code', 'ASC')
+        .getMany();
       const total: number = await this.getCount(prefecture);
 
       let outVos: CityMstOutVo[] = [];
@@ -57,6 +59,7 @@ export class CityMstService {
       const entity: CityMstEntity =  await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
         .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.CITY_MST}.city = :city`, { city })
+        .orderBy('city_code', 'ASC')
         .getOne();
 
       let outVo: CityMstOutVo = plainToClass(CityMstOutVo, entity);

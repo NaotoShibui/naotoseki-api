@@ -36,6 +36,66 @@ export class CityMstEntity extends BaseEntity {
   })
   normalImage: string;
 
+  @Column({
+    nullable: true,
+    name: 'population'
+  })
+  population: number;
+
+  @Column({
+    nullable: true,
+    name: 'railway'
+  })
+  railway: string;
+
+  @Column({
+    nullable: true,
+    name: 'city_code'
+  })
+  cityCode: number;
+
+  @Column({
+    nullable: true,
+    name: 'longitude'
+  })
+  longitude: string;
+
+  @Column({
+    nullable: true,
+    name: 'latitude'
+  })
+  latitude: string;
+
+  @Column({
+    nullable: true,
+    name: 'area'
+  })
+  area: number;
+
+  @Column({
+    nullable: true,
+    name: 'residential_rand'
+  })
+  residentialLand: number;
+
+  @Column({
+    nullable: true,
+    name: 'field'
+  })
+  field: number;
+
+  @Column({
+    nullable: true,
+    name: 'forest'
+  })
+  forest: number;
+
+  @Column({
+    nullable: true,
+    name: 'wilderness'
+  })
+  wilderness: number;
+
   @OneToOne(type => PlaceMstEntity, placeMst => placeMst.cityMst)
   @JoinColumn([
     { name: "prefecture", referencedColumnName: "prefecture"},
