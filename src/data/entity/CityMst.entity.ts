@@ -74,7 +74,7 @@ export class CityMstEntity extends BaseEntity {
 
   @Column({
     nullable: true,
-    name: 'residential_rand'
+    name: 'residential_land'
   })
   residentialLand: number;
 
