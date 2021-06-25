@@ -59,7 +59,6 @@ export class CityMstService {
       const entity: CityMstEntity =  await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
         .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
         .andWhere(`${constants.CITY_MST}.city = :city`, { city })
-        .orderBy('city_code', 'ASC')
         .getOne();
 
       let outVo: CityMstOutVo = plainToClass(CityMstOutVo, entity);
