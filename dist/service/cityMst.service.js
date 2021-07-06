@@ -43,7 +43,9 @@ let CityMstService = class CityMstService {
     async findByPrefecture(prefecture) {
         try {
             const entities = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
-                .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture }).getMany();
+                .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
+                .orderBy('city_code', 'ASC')
+                .getMany();
             const total = await this.getCount(prefecture);
             let outVos = [];
             entities.forEach(entity => {
@@ -60,12 +62,17 @@ let CityMstService = class CityMstService {
         }
     }
     async findByCity(prefecture, city) {
-        const entity = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
-            .leftJoin('sound_archives', 'sound_archives', 'sound_archvies.prefecture = city_mst.prefecture and sound_archives.city = city_mst.city')
-            .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
-            .andWhere(`${constants.CITY_MST}.city = :city`, { city })
-            .getOne();
-        return class_transformer_1.plainToClass(CityMstOutVo_1.default, entity);
+        try {
+            const entity = await this.cityMstRepository.createQueryBuilder(constants.CITY_MST)
+                .where(`${constants.CITY_MST}.prefecture = :prefecture`, { prefecture })
+                .andWhere(`${constants.CITY_MST}.city = :city`, { city })
+                .getOne();
+            let outVo = class_transformer_1.plainToClass(CityMstOutVo_1.default, entity);
+            return outVo;
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
     async getCount(prefecture = '') {
         const query = this.cityMstRepository.createQueryBuilder(constants.CITY_MST);

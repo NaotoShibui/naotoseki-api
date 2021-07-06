@@ -7,5 +7,5 @@ export declare class CityMstController {
     constructor(cityMstService: CityMstService);
     getCityMst(): Promise<GetCityMstListResponse>;
     getCityMstByPrefecture(params: PrefectureParam): Promise<GetCityMstListResponse>;
-    getCityByCity(params: PrefectureParam): Promise<GetCityMstResponse>;
+    getCityMstByCity(params: PrefectureParam): Promise<GetCityMstResponse>;
 }

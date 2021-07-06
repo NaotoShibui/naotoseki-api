@@ -1,6 +1,6 @@
 import GetCityMstOutVo from './CityMstOutVo';
-declare class GetCityMstLustOutVo {
+declare class CityMstListOutVo {
     total: number;
     results: GetCityMstOutVo[];
 }
-export default GetCityMstLustOutVo;
+export default CityMstListOutVo;

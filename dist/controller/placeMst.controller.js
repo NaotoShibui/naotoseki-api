@@ -21,7 +21,7 @@ const GetPlaceMstListResponse_1 = require("./response/GetPlaceMstListResponse");
 const PrefectureParam_1 = require("./request/PrefectureParam");
 const PlaceInfoQuery_1 = require("./request/PlaceInfoQuery");
 const PlaceMstOutVo_1 = require("../service/vo/PlaceMstOutVo");
-const GetPlaceMstResponse_1 = require("./response/GetPlaceMstResponse");
+const cors_interceptor_1 = require("../interceptor/cors.interceptor");
 let PlaceMstController = class PlaceMstController {
     constructor(placeMstService) {
         this.placeMstService = placeMstService;
@@ -38,8 +38,8 @@ let PlaceMstController = class PlaceMstController {
     }
     async getCityMstByPrefecture(params, placeInfo) {
         try {
-            const outVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city, placeInfo.place);
-            const response = class_transformer_1.plainToClass(GetPlaceMstResponse_1.default, outVo);
+            const outVo = await this.placeMstService.findByCity(params.prefecture, placeInfo.city);
+            const response = class_transformer_1.plainToClass(GetPlaceMstListResponse_1.default, outVo);
             return response;
         }
         catch (e) {
@@ -49,12 +49,14 @@ let PlaceMstController = class PlaceMstController {
 };
 __decorate([
     common_1.Get(),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], PlaceMstController.prototype, "getCityMst", null);
 __decorate([
     common_1.Get(':prefecture'),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __param(0, common_1.Param()), __param(1, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [PrefectureParam_1.default, PlaceInfoQuery_1.default]),

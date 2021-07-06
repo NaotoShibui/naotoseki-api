@@ -40,15 +40,23 @@ let PlaceMstService = class PlaceMstService {
             console.log(e);
         }
     }
-    async findByCity(prefecture, city, place) {
+    async findByCity(prefecture, city) {
         try {
-            const entity = await this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
+            const entities = await this.placeMstRepository.createQueryBuilder(constants.PLACE_MST)
+                .leftJoinAndSelect('place_mst.soundArchives', 'sound_archives')
                 .where(`${constants.PLACE_MST}.prefecture = :prefecture`, { prefecture })
                 .andWhere(`${constants.PLACE_MST}.city = :city`, { city })
-                .andWhere(`${constants.PLACE_MST}.place = :place`, { place })
-                .getOne();
-            const outVo = class_transformer_1.plainToClass(PlaceMstOutVo_1.default, entity);
-            return outVo;
+                .getMany();
+            const outVos = [];
+            const total = await this.getCount();
+            entities.forEach(entity => {
+                outVos.push(class_transformer_1.plainToClass(PlaceMstOutVo_1.default, entity));
+            });
+            const result = {
+                total,
+                results: outVos
+            };
+            return result;
         }
         catch (e) {
             console.log(e);

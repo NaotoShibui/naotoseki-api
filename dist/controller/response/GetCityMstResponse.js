@@ -38,6 +38,46 @@ __decorate([
 ], GetCityMstResponse.prototype, "normalImage", void 0);
 __decorate([
     class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "population", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], GetCityMstResponse.prototype, "railway", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "cityCode", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], GetCityMstResponse.prototype, "longitude", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], GetCityMstResponse.prototype, "latitude", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "area", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "residentialLand", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "field", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "forest", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], GetCityMstResponse.prototype, "wilderness", void 0);
+__decorate([
+    class_transformer_1.Expose(),
     __metadata("design:type", Array)
 ], GetCityMstResponse.prototype, "soundArchives", void 0);
 GetCityMstResponse = __decorate([

@@ -13,11 +13,12 @@ const placeMst_module_1 = require("./placeMst.module");
 const soundArchives_module_1 = require("./soundArchives.module");
 const app_controller_1 = require("../../controller/app.controller");
 const app_service_1 = require("../../service/app.service");
+const monitoring_module_1 = require("./monitoring.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [cityMst_module_1.CityMstModule, placeMst_module_1.PlaceMstModule, soundArchives_module_1.SoundArchivesModule],
+        imports: [cityMst_module_1.CityMstModule, placeMst_module_1.PlaceMstModule, soundArchives_module_1.SoundArchivesModule, monitoring_module_1.MonitoringModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

@@ -12,6 +12,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.PlaceMstEntity = void 0;
 const typeorm_1 = require("typeorm");
 const constants = require("../../constants");
+const CityMst_entity_1 = require("./CityMst.entity");
+const SoundArchives_entity_1 = require("./SoundArchives.entity");
 let PlaceMstEntity = class PlaceMstEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -50,6 +52,14 @@ __decorate([
     }),
     __metadata("design:type", Number)
 ], PlaceMstEntity.prototype, "pointRatioY", void 0);
+__decorate([
+    typeorm_1.OneToMany(type => SoundArchives_entity_1.SoundArchivesEntity, soundArchive => soundArchive.placeMst),
+    __metadata("design:type", Array)
+], PlaceMstEntity.prototype, "soundArchives", void 0);
+__decorate([
+    typeorm_1.OneToOne(type => CityMst_entity_1.CityMstEntity, cityMst => cityMst.placeMst),
+    __metadata("design:type", CityMst_entity_1.CityMstEntity)
+], PlaceMstEntity.prototype, "cityMst", void 0);
 PlaceMstEntity = __decorate([
     typeorm_1.Entity(constants.PLACE_MST)
 ], PlaceMstEntity);

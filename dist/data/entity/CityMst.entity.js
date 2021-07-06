@@ -12,7 +12,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.CityMstEntity = void 0;
 const typeorm_1 = require("typeorm");
 const constants = require("../../constants");
-const SoundArchives_entity_1 = require("./SoundArchives.entity");
+const PlaceMst_entity_1 = require("./PlaceMst.entity");
 let CityMstEntity = class CityMstEntity extends typeorm_1.BaseEntity {
 };
 __decorate([
@@ -54,9 +54,83 @@ __decorate([
     __metadata("design:type", String)
 ], CityMstEntity.prototype, "normalImage", void 0);
 __decorate([
-    typeorm_1.OneToMany(type => SoundArchives_entity_1.SoundArchivesEntity, soundArchive => soundArchive.city),
-    __metadata("design:type", Array)
-], CityMstEntity.prototype, "soundArchives", void 0);
+    typeorm_1.Column({
+        nullable: true,
+        name: 'population'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "population", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'railway'
+    }),
+    __metadata("design:type", String)
+], CityMstEntity.prototype, "railway", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'city_code'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "cityCode", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'longitude'
+    }),
+    __metadata("design:type", String)
+], CityMstEntity.prototype, "longitude", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'latitude'
+    }),
+    __metadata("design:type", String)
+], CityMstEntity.prototype, "latitude", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'area'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "area", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'residential_land'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "residentialLand", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'field'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "field", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'forest'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "forest", void 0);
+__decorate([
+    typeorm_1.Column({
+        nullable: true,
+        name: 'wilderness'
+    }),
+    __metadata("design:type", Number)
+], CityMstEntity.prototype, "wilderness", void 0);
+__decorate([
+    typeorm_1.OneToOne(type => PlaceMst_entity_1.PlaceMstEntity, placeMst => placeMst.cityMst),
+    typeorm_1.JoinColumn([
+        { name: "prefecture", referencedColumnName: "prefecture" },
+        { name: "city", referencedColumnName: "city" }
+    ]),
+    __metadata("design:type", PlaceMst_entity_1.PlaceMstEntity)
+], CityMstEntity.prototype, "placeMst", void 0);
 CityMstEntity = __decorate([
     typeorm_1.Entity(constants.CITY_MST)
 ], CityMstEntity);

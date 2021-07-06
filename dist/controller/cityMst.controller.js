@@ -21,6 +21,7 @@ const GetCityMstListResponse_1 = require("./response/GetCityMstListResponse");
 const PrefectureParam_1 = require("./request/PrefectureParam");
 const GetCityMstResponse_1 = require("./response/GetCityMstResponse");
 const CityMstOutVo_1 = require("../service/vo/CityMstOutVo");
+const cors_interceptor_1 = require("../interceptor/cors.interceptor");
 let CityMstController = class CityMstController {
     constructor(cityMstService) {
         this.cityMstService = cityMstService;
@@ -45,10 +46,10 @@ let CityMstController = class CityMstController {
             console.log(e);
         }
     }
-    async getCityByCity(params) {
+    async getCityMstByCity(params) {
         try {
-            const outVo = await this.cityMstService.findByCity(params.prefecture, params.city);
-            const response = class_transformer_1.plainToClass(GetCityMstResponse_1.default, outVo);
+            const outVos = await this.cityMstService.findByCity(params.prefecture, params.city);
+            const response = class_transformer_1.plainToClass(GetCityMstResponse_1.default, outVos);
             return response;
         }
         catch (e) {
@@ -58,12 +59,14 @@ let CityMstController = class CityMstController {
 };
 __decorate([
     common_1.Get(),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], CityMstController.prototype, "getCityMst", null);
 __decorate([
     common_1.Get(':prefecture'),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __param(0, common_1.Param()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [PrefectureParam_1.default]),
@@ -71,11 +74,12 @@ __decorate([
 ], CityMstController.prototype, "getCityMstByPrefecture", null);
 __decorate([
     common_1.Get(':prefecture/:city'),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __param(0, common_1.Param()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [PrefectureParam_1.default]),
     __metadata("design:returntype", Promise)
-], CityMstController.prototype, "getCityByCity", null);
+], CityMstController.prototype, "getCityMstByCity", null);
 CityMstController = __decorate([
     common_1.Controller('city'),
     __metadata("design:paramtypes", [cityMst_service_1.CityMstService])

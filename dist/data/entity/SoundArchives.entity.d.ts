@@ -1,5 +1,5 @@
 import { BaseEntity } from 'typeorm';
-import { CityMstEntity } from './CityMst.entity';
+import { PlaceMstEntity } from './PlaceMst.entity';
 export declare class SoundArchivesEntity extends BaseEntity {
     title: string;
     prefecture: string;
@@ -12,5 +12,5 @@ export declare class SoundArchivesEntity extends BaseEntity {
     isNormalized: boolean;
     isNoiseReducted: boolean;
     isRepaired: boolean;
-    cityMst?: CityMstEntity;
+    placeMst: PlaceMstEntity;
 }

@@ -10,35 +10,75 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_transformer_1 = require("class-transformer");
-let GetCityMstOutVo = class GetCityMstOutVo {
+let CityMstOutVo = class CityMstOutVo {
 };
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "prefecture", void 0);
+], CityMstOutVo.prototype, "prefecture", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "prefName", void 0);
+], CityMstOutVo.prototype, "prefName", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "city", void 0);
+], CityMstOutVo.prototype, "city", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "cityName", void 0);
+], CityMstOutVo.prototype, "cityName", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "activeImage", void 0);
+], CityMstOutVo.prototype, "activeImage", void 0);
 __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", String)
-], GetCityMstOutVo.prototype, "normalImage", void 0);
-GetCityMstOutVo = __decorate([
+], CityMstOutVo.prototype, "normalImage", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "population", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], CityMstOutVo.prototype, "railway", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "cityCode", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], CityMstOutVo.prototype, "longitude", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", String)
+], CityMstOutVo.prototype, "latitude", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "area", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "residentialLand", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "field", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "forest", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", Number)
+], CityMstOutVo.prototype, "wilderness", void 0);
+CityMstOutVo = __decorate([
     class_transformer_1.Exclude()
-], GetCityMstOutVo);
-Object.seal(GetCityMstOutVo);
-exports.default = GetCityMstOutVo;
+], CityMstOutVo);
+Object.seal(CityMstOutVo);
+exports.default = CityMstOutVo;
 //# sourceMappingURL=CityMstOutVo.js.map

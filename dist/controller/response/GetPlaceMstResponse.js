@@ -10,6 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_transformer_1 = require("class-transformer");
+const GetCityMstResponse_1 = require("./GetCityMstResponse");
+const GetSoundArchivesResponse_1 = require("./GetSoundArchivesResponse");
 let GetPlaceMstResponse = class GetPlaceMstResponse {
 };
 __decorate([
@@ -36,6 +38,14 @@ __decorate([
     class_transformer_1.Expose(),
     __metadata("design:type", Number)
 ], GetPlaceMstResponse.prototype, "pointRatioY", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", GetSoundArchivesResponse_1.default)
+], GetPlaceMstResponse.prototype, "soundArchives", void 0);
+__decorate([
+    class_transformer_1.Expose(),
+    __metadata("design:type", GetCityMstResponse_1.default)
+], GetPlaceMstResponse.prototype, "cityMst", void 0);
 GetPlaceMstResponse = __decorate([
     class_transformer_1.Exclude()
 ], GetPlaceMstResponse);

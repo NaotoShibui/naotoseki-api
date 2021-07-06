@@ -9,20 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const class_transformer_1 = require("class-transformer");
-let CityMstListOutVo = class CityMstListOutVo {
+exports.MonitoringController = void 0;
+const common_1 = require("@nestjs/common");
+const cors_interceptor_1 = require("../interceptor/cors.interceptor");
+let MonitoringController = class MonitoringController {
+    async monitoring() {
+        try {
+            return 'alive';
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
 };
 __decorate([
-    class_transformer_1.Expose(),
-    __metadata("design:type", Number)
-], CityMstListOutVo.prototype, "total", void 0);
-__decorate([
-    class_transformer_1.Expose(),
-    __metadata("design:type", Array)
-], CityMstListOutVo.prototype, "results", void 0);
-CityMstListOutVo = __decorate([
-    class_transformer_1.Exclude()
-], CityMstListOutVo);
-Object.seal(CityMstListOutVo);
-exports.default = CityMstListOutVo;
-//# sourceMappingURL=CityMstListOutVo.js.map
+    common_1.Get(),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], MonitoringController.prototype, "monitoring", null);
+MonitoringController = __decorate([
+    common_1.Controller('monitoring')
+], MonitoringController);
+exports.MonitoringController = MonitoringController;
+//# sourceMappingURL=monitoring.controller.js.map

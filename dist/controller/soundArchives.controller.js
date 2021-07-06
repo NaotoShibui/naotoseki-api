@@ -20,6 +20,7 @@ const CityQuery_1 = require("./request/CityQuery");
 const SoundArchivesListOutVo_1 = require("../service/vo/SoundArchivesListOutVo");
 const GetSoundArchivesListResponse_1 = require("./response/GetSoundArchivesListResponse");
 const soundArchives_service_1 = require("../service/soundArchives.service");
+const cors_interceptor_1 = require("../interceptor/cors.interceptor");
 let SoundArchivesController = class SoundArchivesController {
     constructor(soundArchivesService) {
         this.soundArchivesService = soundArchivesService;
@@ -37,6 +38,7 @@ let SoundArchivesController = class SoundArchivesController {
 };
 __decorate([
     common_1.Get(':prefecture'),
+    common_1.UseInterceptors(cors_interceptor_1.CorsAllowInterceptor),
     __param(0, common_1.Param()), __param(1, common_1.Query()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [PrefectureParam_1.default, CityQuery_1.default]),
