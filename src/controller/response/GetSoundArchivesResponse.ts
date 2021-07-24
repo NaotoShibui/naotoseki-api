@@ -3,6 +3,9 @@ import { Exclude, Expose } from 'class-transformer';
 @Exclude()
 class GetSoundArchivesResponse {
   @Expose()
+  id: string;
+
+  @Expose()
   title: string;
   
   @Expose()

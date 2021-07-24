@@ -5,26 +5,31 @@ import { PlaceMstEntity } from './PlaceMst.entity';
 @Entity(constants.SOUND_ARCHIVES)
 export class SoundArchivesEntity extends BaseEntity {
   @PrimaryColumn({
+    name: 'id'
+  })
+  id: string;
+
+  @Column({
     name: 'title'
   })
   title: string;
   
-  @PrimaryColumn({
+  @Column({
     name: 'prefecture'
   })
   prefecture: string;
 
-  @PrimaryColumn({
+  @Column({
     name: 'city'
   })
   city: string;
   
-  @PrimaryColumn({
+  @Column({
     name: 'place'
   })
   place: string;
   
-  @PrimaryColumn({
+  @Column({
     name: 'recording_date'
   })
   recordingDate: Date;
